@@ -1,1 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Putri Ella Nazila | Data Analyst</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #26364a;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #e5edf5;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #294f73;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #536579;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #6ca6d8;
+        }
+
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: #79add5;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            margin-top: 8px;
+            font-size: 34px;
+            color: #294f73;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 80px 10%;
+            background: linear-gradient(135deg, #f5fbff, #ffffff);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .small-title {
+            color: #79add5;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            color: #294f73;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #6c8195;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: #667789;
+            max-width: 560px;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #79add5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5e96c3;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #79add5;
+            color: #5e8fb7;
+        }
+
+        .btn-outline:hover {
+            background: #eef8ff;
+        }
+
+
+        /* ================= PROFILE PHOTO ================= */
+
+        .profile-container {
+            position: relative;
+            width: 310px;
+            height: 310px;
+            flex-shrink: 0;
+        }
+
+        .profile-circle {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: #dceefa;
+            border: 8px solid white;
+            outline: 2px dashed #79add5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #5e8fb7;
+            font-size: 72px;
+            font-weight: bold;
+            margin: 15px;
+            box-shadow: 0 15px 40px rgba(71, 119, 157, 0.15);
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about-container {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-container p {
+            color: #667789;
+            font-size: 17px;
+        }
+
+
+        /* ================= EXPERIENCE ================= */
+
+        .experience-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .experience-card {
+            background: #f7fbfe;
+            border: 1px solid #e3eef7;
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(71, 119, 157, 0.1);
+        }
+
+        .experience-card .category {
+            color: #79add5;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .experience-card h3 {
+            color: #294f73;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .experience-card .date {
+            font-size: 13px;
+            color: #8495a5;
+            margin-bottom: 15px;
+        }
+
+        .experience-card p {
+            color: #667789;
+            font-size: 14px;
+        }
+
+
+        /* ================= PROJECTS ================= */
+
+        .projects {
+            background: #f7fbfe;
+        }
+
+        .project-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #e4eef6;
+            min-height: 270px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(71, 119, 157, 0.12);
+        }
+
+        .project-number {
+            font-size: 13px;
+            color: #79add5;
+            font-weight: bold;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            color: #294f73;
+            margin: 18px 0 12px;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: #667789;
+        }
+
+        .project-link {
+            margin-top: 20px;
+            color: #5e96c3;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+
+        /* ================= AWARDS ================= */
+
+        .award-grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .award-card {
+            text-align: center;
+            padding: 28px 20px;
+            border-radius: 15px;
+            background: #f7fbfe;
+            border: 1px solid #e3eef7;
+        }
+
+        .award-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .award-card h3 {
+            color: #294f73;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .award-card p {
+            font-size: 13px;
+            color: #718294;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #eef8ff;
+            text-align: center;
+        }
+
+        .contact-text {
+            max-width: 600px;
+            margin: 0 auto 35px;
+            color: #667789;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 18px 25px;
+            border-radius: 12px;
+            border: 1px solid #dcecf8;
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 11px;
+            color: #79add5;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: #294f73;
+            font-weight: 600;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            background: #294f73;
+            color: white;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 60px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .experience-grid,
+            .project-grid,
+            .award-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-container {
+                width: 260px;
+                height: 260px;
+            }
+
+            .profile-circle {
+                width: 230px;
+                height: 230px;
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+        <div class="logo">Putri Ella Nazila</div>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                HELLO, I'M
+            </div>
+
+            <h1>Putri Ella Nazila</h1>
+
+            <h2>Data Analyst</h2>
+
+            <p>
+                Saya Putri Ella Nazila, fresh graduate Sains Data
+                Telkom University Kampus Purwokerto dengan minat besar
+                dalam menganalisis data dan mengubahnya menjadi informasi
+                bernilai untuk pengambilan keputusan.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Temporary profile placeholder -->
+
+        <div class="profile-container">
+
+            <div class="profile-circle">
+                PE
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+        <div class="section-title">
+            <span>About Me</span>
+            <h2>Turning Data Into Insights</h2>
+        </div>
+
+        <div class="about-container">
+
+            <p>
+                Saya memiliki minat dalam analisis data, visualisasi data,
+                dan pengolahan informasi untuk menghasilkan insight yang
+                relevan dan mendukung pengambilan keputusan berbasis data.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section id="experience">
+
+        <div class="section-title">
+            <span>Experiences</span>
+            <h2>Education & Experience</h2>
+        </div>
+
+
+        <div class="experience-grid">
+
+            <!-- EDUCATION -->
+
+            <div class="experience-card">
+
+                <div class="category">
+                    EDUCATION
+                </div>
+
+                <h3>Telkom University</h3>
+
+                <div class="date">
+                    Oktober 2022 — Agustus 2026
+                </div>
+
+                <p>
+                    Bachelor Data Science
+                </p>
+
+            </div>
+
+
+            <!-- ORGANIZATION -->
+
+            <div class="experience-card">
+
+                <div class="category">
+                    ORGANIZATION
+                </div>
+
+                <h3>UKM Sentral Kerohanian Islam</h3>
+
+                <div class="date">
+                    Desember 2023 — Desember 2025
+                </div>
+
+                <p>
+                    Bendahara
+                </p>
+
+            </div>
+
+
+            <!-- WORK -->
+
+            <div class="experience-card">
+
+                <div class="category">
+                    WORK
+                </div>
+
+                <h3>Puskesmas Banyumas</h3>
+
+                <div class="date">
+                    Juli 2024 — Agustus 2024
+                </div>
+
+                <p>
+                    Data Analyst, Banyumas. Mengembangkan sistem otomatis
+                    berbasis Microsoft Excel untuk menghitung IMT,
+                    menentukan status gizi, serta membantu pengolahan data.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="projects" class="projects">
+
+        <div class="section-title">
+            <span>My Work</span>
+            <h2>Projects</h2>
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 01
+                    </div>
+
+                    <h3>
+                        Data Visualization & Infographics
+                    </h3>
+
+                    <p>
+                        Menyajikan data dan informasi dalam bentuk visual
+                        yang informatif, menarik, dan mudah dipahami.
+                    </p>
+
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 02
+                    </div>
+
+                    <h3>
+                        Data Analytics & Dashboards
+                    </h3>
+
+                    <p>
+                        Mengolah dan menganalisis data untuk menghasilkan
+                        insight yang relevan, kemudian menyajikannya
+                        melalui dashboard.
+                    </p>
+
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 03
+                    </div>
+
+                    <h3>
+                        Research & Publications
+                    </h3>
+
+                    <p>
+                        Panel Data Regression Analysis Using the Fixed
+                        Effect Model on Rice Production in the
+                        Sumatra region.
+                    </p>
+
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= AWARDS ================= -->
+
+    <section id="awards">
+
+        <div class="section-title">
+            <span>Achievements</span>
+            <h2>Awards</h2>
+        </div>
+
+
+        <div class="award-grid">
+
+
+            <div class="award-card">
+
+                <div class="award-icon">🏆</div>
+
+                <h3>
+                    Juara 3 Kompetisi Infografis
+                </h3>
+
+                <p>
+                    BIOVERSARY<br>
+                    Himpunan Mahasiswa Biologi IPB University<br>
+                    2024
+                </p>
+
+            </div>
+
+
+            <div class="award-card">
+
+                <div class="award-icon">🏆</div>
+
+                <h3>
+                    Finalis Kompetisi Infografis
+                </h3>
+
+                <p>
+                    UBIQUINON<br>
+                    Himpunan Profesi Mahasiswa Biokimia IPB University<br>
+                    2024
+                </p>
+
+            </div>
+
+
+            <div class="award-card">
+
+                <div class="award-icon">🏆</div>
+
+                <h3>
+                    Peraih Insentif Bidang PKM-GFT
+                </h3>
+
+                <p>
+                    Kemendikbudristek<br>
+                    2024
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact" class="contact">
+
+        <div class="section-title">
+
+            <span>Get In Touch</span>
+
+            <h2>Contact Me</h2>
+
+        </div>
+
+
+        <p class="contact-text">
+            Contact me for more information or discussion!
+        </p>
+
+
+        <div class="contact-info">
+
+
+            <div class="contact-item">
+
+                <span>EMAIL</span>
+
+                <a href="mailto:putriellanazila@gmail.com">
+                    putriellanazila@gmail.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span>NO. HP</span>
+
+                <a href="tel:0895333370024">
+                    0895333370024
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span>GITHUB</span>
+
+                <a href="https://github.com/putriellanazila"
+                   target="_blank">
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span>LINKEDIN</span>
+
+                <a href="#"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Putri Ella Nazila · Data Analyst
+        </p>
+
+    </footer>
+
+</body>
+</html>
