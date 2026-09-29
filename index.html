@@ -179,13 +179,15 @@
         }
 
         .profile-photo {
-            width: 280px;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 8px solid white;
-            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.20);
-        }
+        display: block;
+        width: 280px !important;
+        height: 280px !important;
+        max-width: 280px !important;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 8px solid white;
+        box-shadow: 0 15px 40px rgba(37, 99, 235, 0.20);
+    }
 
         /* ================= ABOUT ================= */
 
@@ -500,7 +502,9 @@
                     src="Me.jpg"
                     alt="Putri Ella Nazila"
                     class="profile-photo"
+                    style="width:280px; height:280px; max-width:280px; object-fit:cover; border-radius:50%; display:block;"
                 >
+                
 
             </div>
 
